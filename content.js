@@ -1,6 +1,4 @@
-console.log("content.js");
-
-const disabledKeyCodes = new Set([
+const keypadKeyCodes = new Set([
   12,
   33,
   34,
@@ -23,10 +21,23 @@ const disabledKeyCodes = new Set([
   105
 ]);
 
+const numberKeyCodes = new Set([
+  48,
+  49,
+  50,
+  51,
+  52,
+  53,
+  54,
+  55,
+  56,
+  57
+]);
+
 window.addEventListener(
   "keydown",
-  function(e) {
-    if (disabledKeyCodes.has(e.which) && e.location == 3) {
+  function (e) {
+    if ((keypadKeyCodes.has(e.which) && e.location === 3) || numberKeyCodes.has(e.which)) {
       e.stopPropagation();
     }
   },
